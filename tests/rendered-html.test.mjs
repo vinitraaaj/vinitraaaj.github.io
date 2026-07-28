@@ -67,7 +67,7 @@ test("ships theme, reduced-motion, and overflow safeguards", async () => {
   assert.match(css, /@media \(max-width:\s*680px\)/);
   assert.match(layout, /vinit-portfolio-theme/);
   assert.match(layout, /prefers-color-scheme:\s*dark/);
-  assert.match(data, /portraitImage:\s*"\/images\/vinit-hero-shared-v3\.png"/);
+  assert.match(data, /portraitImage:\s*"\/images\/vinit-hero-shared-v4\.png"/);
   assert.match(data, /email:\s*""/);
   assert.match(data, /githubUrl:\s*""/);
   assert.match(packageJson, /"framer-motion"/);

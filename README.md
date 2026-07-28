@@ -47,7 +47,7 @@ Do not mark a project Completed or describe production outcomes until those fact
 
 ## Replace the hero portrait
 
-The hero uses one identity-preserving graphite editorial portrait across both themes: `public/images/vinit-hero-shared-v3.png`.
+The hero uses one identity-preserving graphite editorial portrait across both themes: `public/images/vinit-hero-shared-v4.png`.
 
 To replace it, add an optimised wide image to `public/images`, then update `portraitImage` in `src/data/portfolio.ts`. Keep the subject on the right and preserve roughly 44% negative space on the left so the headline remains readable.
 
