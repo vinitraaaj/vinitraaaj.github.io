@@ -1,60 +1,39 @@
 "use client";
 
 import Image from "next/image";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDownRight, ArrowRight, MapPin } from "lucide-react";
-import { useRef } from "react";
 import { portfolio } from "@/src/data/portfolio";
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const reducedMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const copyY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reducedMotion ? 0 : 46],
-  );
-  const mediaY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, reducedMotion ? 0 : 74],
-  );
 
   return (
-    <section
-      id="overview"
-      ref={sectionRef}
-      className="hero"
-      aria-labelledby="hero-title"
-    >
-      <motion.div className="hero-media" style={{ y: mediaY }}>
+    <section id="overview" className="hero" aria-labelledby="hero-title">
+      <div className="hero-media">
         <Image
           src={portfolio.profile.portraitImage}
           alt={portfolio.profile.portraitAlt}
           fill
           priority
           quality={92}
-          sizes="(max-width: 768px) 148vw, 100vw"
+          sizes="100vw"
           className="hero-scene"
         />
-      </motion.div>
+      </div>
       <div className="hero-tone" aria-hidden="true" />
+      <div className="hero-signal" aria-hidden="true">
+        <span>VR / 01</span>
+        <i />
+        <span>PORTFOLIO</span>
+      </div>
 
-      <motion.div className="hero-copy" style={{ y: copyY }}>
+      <motion.div className="hero-copy">
         <motion.p
           className="hero-eyebrow"
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.04 }}
+          transition={{ duration: 0.42, delay: 0.12 }}
         >
           {portfolio.profile.eyebrow}
         </motion.p>
@@ -63,7 +42,11 @@ export function Hero() {
             id="hero-title"
             initial={reducedMotion ? false : { y: "110%" }}
             animate={{ y: 0 }}
-            transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.74,
+              delay: 0.08,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
             {portfolio.profile.name}
           </motion.h1>
@@ -71,24 +54,24 @@ export function Hero() {
         <motion.h2
           initial={reducedMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.62, delay: 0.16 }}
+          transition={{ duration: 0.58, delay: 0.22 }}
         >
           {portfolio.profile.headline}
         </motion.h2>
         <motion.p
           className="hero-description"
-          initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.62, delay: 0.24 }}
+          transition={{ duration: 0.56, delay: 0.3 }}
         >
           {portfolio.profile.description}
         </motion.p>
 
         <motion.div
           className="hero-actions"
-          initial={reducedMotion ? false : { opacity: 0, y: 14 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.58, delay: 0.32 }}
+          transition={{ duration: 0.52, delay: 0.38 }}
         >
           <a className="button button-primary" href="#work">
             Explore my work <ArrowDownRight size={17} aria-hidden="true" />
@@ -102,7 +85,7 @@ export function Hero() {
           className="hero-meta"
           initial={reducedMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.55, delay: 0.42 }}
+          transition={{ duration: 0.5, delay: 0.46 }}
         >
           <span className="availability">
             <i aria-hidden="true" />
@@ -114,7 +97,6 @@ export function Hero() {
           </span>
         </motion.div>
       </motion.div>
-
       <a className="scroll-cue" href="#glance">
         <span aria-hidden="true" />
         Scroll to explore
