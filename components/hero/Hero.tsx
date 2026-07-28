@@ -36,28 +36,15 @@ export function Hero() {
       className="hero"
       aria-labelledby="hero-title"
     >
-      <motion.div
-        className="hero-media"
-        style={{ y: mediaY }}
-        aria-hidden="true"
-      >
+      <motion.div className="hero-media" style={{ y: mediaY }}>
         <Image
-          src={portfolio.profile.portraitLightImage}
-          alt=""
+          src={portfolio.profile.portraitImage}
+          alt={portfolio.profile.portraitAlt}
           fill
           priority
           quality={92}
           sizes="(max-width: 768px) 148vw, 100vw"
-          className="hero-scene hero-scene-light"
-        />
-        <Image
-          src={portfolio.profile.portraitDarkImage}
-          alt=""
-          fill
-          priority
-          quality={92}
-          sizes="(max-width: 768px) 148vw, 100vw"
-          className="hero-scene hero-scene-dark"
+          className="hero-scene"
         />
       </motion.div>
       <div className="hero-tone" aria-hidden="true" />

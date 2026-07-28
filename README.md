@@ -47,12 +47,9 @@ Do not mark a project Completed or describe production outcomes until those fact
 
 ## Replace the hero portrait
 
-The current hero uses two identity-preserving editorial treatments created from Vinit's supplied portrait:
+The hero uses one identity-preserving graphite editorial portrait across both themes: `public/images/vinit-hero-shared-v3.png`.
 
-- `public/images/vinit-hero-light-v2.png` for the pearl-white architectural theme
-- `public/images/vinit-hero-dark-v2.png` for the graphite cinematic theme
-
-To replace them, add two optimised wide images to `public/images`, then update `portraitLightImage` and `portraitDarkImage` in `src/data/portfolio.ts`. Keep the subject on the right and preserve roughly 44% negative space on the left so the headline remains readable. Both images should share the same dimensions and composition for a clean theme crossfade.
+To replace it, add an optimised wide image to `public/images`, then update `portraitImage` in `src/data/portfolio.ts`. Keep the subject on the right and preserve roughly 44% negative space on the left so the headline remains readable.
 
 ## Add contact and social links
 

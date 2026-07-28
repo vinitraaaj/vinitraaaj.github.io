@@ -12,6 +12,12 @@ import { useReducedMotion } from "framer-motion";
 
 type Theme = "light" | "dark";
 
+type ThemeDocument = Document & {
+  startViewTransition?: (callback: () => void) => {
+    finished: Promise<void>;
+  };
+};
+
 interface ThemeContextValue {
   theme: Theme;
   toggleTheme: () => void;
@@ -33,20 +39,36 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         'meta[name="theme-color"]',
       );
 
-      if (!reducedMotion) {
-        root.classList.add("theme-is-changing");
-        window.setTimeout(
-          () => root.classList.remove("theme-is-changing"),
-          880,
-        );
+      const commitTheme = () => {
+        root.dataset.theme = nextTheme;
+        localStorage.setItem("vinit-portfolio-theme", nextTheme);
+        if (meta) {
+          meta.content = nextTheme === "dark" ? "#07090c" : "#eef1f4";
+        }
+        setTheme(nextTheme);
+      };
+
+      if (reducedMotion) {
+        commitTheme();
+        return;
       }
 
-      root.dataset.theme = nextTheme;
-      localStorage.setItem("vinit-portfolio-theme", nextTheme);
-      if (meta) {
-        meta.content = nextTheme === "dark" ? "#07090c" : "#eef1f4";
+      root.classList.add("theme-is-changing");
+      const transition = (document as ThemeDocument).startViewTransition?.(
+        commitTheme,
+      );
+
+      if (transition) {
+        void transition.finished.finally(() => {
+          root.classList.remove("theme-is-changing");
+        });
+      } else {
+        commitTheme();
+        window.setTimeout(
+          () => root.classList.remove("theme-is-changing"),
+          920,
+        );
       }
-      setTheme(nextTheme);
     },
     [reducedMotion],
   );

@@ -88,8 +88,7 @@ export const portfolio = {
       "I build reliable, intuitive, and carefully crafted software at the intersection of engineering, product thinking, and design.",
     availability: "Open to meaningful opportunities",
     location: "Based in India · Building for the world",
-    portraitLightImage: "/images/vinit-hero-light-v2.png",
-    portraitDarkImage: "/images/vinit-hero-dark-v2.png",
+    portraitImage: "/images/vinit-hero-shared-v3.png",
     portraitAlt: "Portrait of Vinit Raj",
     principle: "Good engineering should feel clear, reliable, and intentional.",
     longView:
