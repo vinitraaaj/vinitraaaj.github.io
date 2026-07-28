@@ -47,13 +47,12 @@ Do not mark a project Completed or describe production outcomes until those fact
 
 ## Replace the hero portrait
 
-The current hero uses an abstract VR monogram and silhouette. To replace it:
+The current hero uses two identity-preserving editorial treatments created from Vinit's supplied portrait:
 
-1. Add an optimised portrait to public/images, for example public/images/vinit-portrait.webp.
-2. In src/data/portfolio.ts, set portraitImage to /images/vinit-portrait.webp.
-3. Update portraitAlt with an accurate description.
+- `public/images/vinit-hero-light-v2.png` for the pearl-white architectural theme
+- `public/images/vinit-hero-dark-v2.png` for the graphite cinematic theme
 
-The hero automatically switches from the abstract placeholder to the supplied image through Next Image. A portrait with a calm background and generous space around the shoulders works best.
+To replace them, add two optimised wide images to `public/images`, then update `portraitLightImage` and `portraitDarkImage` in `src/data/portfolio.ts`. Keep the subject on the right and preserve roughly 44% negative space on the left so the headline remains readable. Both images should share the same dimensions and composition for a clean theme crossfade.
 
 ## Add contact and social links
 
@@ -75,7 +74,7 @@ Semantic design tokens live at the top of app/globals.css. The toggle runs a sho
 
 The title, description, Open Graph data, X data, structured data, sitemap, and robots rules are configured from the portfolio content.
 
-Set NEXT_PUBLIC_SITE_URL in the deployment environment to the final public origin. This enables absolute social-image URLs and production sitemap URLs. The generated social card is public/og.jpg.
+Set NEXT_PUBLIC_SITE_URL in the deployment environment to the final public origin. This enables absolute social-image URLs and production sitemap URLs. The current reference-aligned social card is `public/og-v2.png`.
 
 ## Deployment
 
@@ -94,7 +93,7 @@ These values are intentionally non-fabricated and should be replaced only with v
 - All project live links, source links, and media
 - Experiment source links, imagery, and detailed build notes
 - Email, resume, GitHub, LinkedIn, LeetCode, and X links
-- Hero portrait
+- Hero portrait treatments, if a newer portrait is preferred
 - Final public site URL
 - Favicon artwork
 
@@ -105,6 +104,6 @@ The concept and in-development labels are intentional. They prevent unfinished i
 - app — App Router page, metadata, sitemap, robots, and global design system
 - components — reusable navigation, theme, motion, glass, hero, project, timeline, experiment, about, contact, and layout components
 - src/data/portfolio.ts — the single personal content source
-- public/og.jpg — generated social preview artwork
+- public/og-v2.png — generated social preview artwork matching the redesigned portrait direction
 
 The implementation uses strict TypeScript, Tailwind CSS, Framer Motion, Lucide icons, Next Image, Next Font, semantic HTML, keyboard focus states, reduced-motion support, and responsive layouts without duplicated theme markup.

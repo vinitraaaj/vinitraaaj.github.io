@@ -61,6 +61,13 @@ export interface Experiment {
   accent: "plotter" | "keyboard" | "dial";
 }
 
+export interface OverviewCard {
+  title: string;
+  description: string;
+  href: string;
+  icon: "overview" | "work" | "engineering" | "journey" | "about";
+}
+
 // Edit this single object to personalise the entire portfolio.
 // Empty optional links are hidden automatically.
 export const portfolio = {
@@ -81,7 +88,8 @@ export const portfolio = {
       "I build reliable, intuitive, and carefully crafted software at the intersection of engineering, product thinking, and design.",
     availability: "Open to meaningful opportunities",
     location: "Based in India · Building for the world",
-    portraitImage: "",
+    portraitLightImage: "/images/vinit-hero-light-v2.png",
+    portraitDarkImage: "/images/vinit-hero-dark-v2.png",
     portraitAlt: "Portrait of Vinit Raj",
     principle: "Good engineering should feel clear, reliable, and intentional.",
     longView:
@@ -109,6 +117,38 @@ export const portfolio = {
     { label: "About", href: "#about", sectionId: "about" },
     { label: "Contact", href: "#contact", sectionId: "contact" },
   ] satisfies NavigationItem[],
+  overviewCards: [
+    {
+      title: "Overview",
+      description: "A concise view of purpose, craft, and direction.",
+      href: "#glance",
+      icon: "overview",
+    },
+    {
+      title: "Selected Work",
+      description: "Product concepts and technical builds in progress.",
+      href: "#work",
+      icon: "work",
+    },
+    {
+      title: "Engineering",
+      description: "Systems, interfaces, automation, and useful motion.",
+      href: "#engineering",
+      icon: "engineering",
+    },
+    {
+      title: "Journey",
+      description: "Curiosity, deliberate practice, and the long view.",
+      href: "#journey",
+      icon: "journey",
+    },
+    {
+      title: "About",
+      description: "The interests and ambitions beyond the code.",
+      href: "#about",
+      icon: "about",
+    },
+  ] satisfies OverviewCard[],
   socials: [
     { label: "GitHub", href: "" },
     { label: "LinkedIn", href: "" },

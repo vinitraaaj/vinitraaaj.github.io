@@ -42,14 +42,21 @@ export const metadata: Metadata = {
     description: portfolio.seo.description,
     siteName: portfolio.profile.name,
     images: siteUrl
-      ? [{ url: "/og.jpg", width: 1728, height: 910, alt: portfolio.seo.title }]
+      ? [
+          {
+            url: "/og-v2.png",
+            width: 1728,
+            height: 910,
+            alt: portfolio.seo.title,
+          },
+        ]
       : undefined,
   },
   twitter: {
     card: siteUrl ? "summary_large_image" : "summary",
     title: portfolio.seo.title,
     description: portfolio.seo.description,
-    images: siteUrl ? ["/og.jpg"] : undefined,
+    images: siteUrl ? ["/og-v2.png"] : undefined,
   },
 };
 
