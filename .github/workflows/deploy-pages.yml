@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    if: github.repository == "vinitraaaj/vinitraaaj.github.io"
+    if: ${{ github.repository == 'vinitraaaj/vinitraaaj.github.io' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
