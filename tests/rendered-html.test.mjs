@@ -51,6 +51,7 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, /id="journey"/);
   assert.match(html, /id="about"/);
   assert.match(html, /id="contact"/);
+  assert.match(html, /href="mailto:vinitraj@icloud\.com"/);
   assert.match(html, />Huee</);
   assert.match(html, />Catalog</);
   assert.match(html, />Latching</);
@@ -83,7 +84,7 @@ test("ships theme, reduced-motion, and overflow safeguards", async () => {
   assert.match(layout, /vinit-portfolio-theme/);
   assert.match(layout, /prefers-color-scheme:\s*dark/);
   assert.match(data, /portraitImage:\s*"\/images\/vinit-hero-shared-v4\.png"/);
-  assert.match(data, /email:\s*""/);
+  assert.match(data, /email:\s*"vinitraj@icloud\.com"/);
   assert.match(data, /githubUrl:\s*""/);
   assert.match(packageJson, /"framer-motion"/);
   assert.match(packageJson, /"lucide-react"/);

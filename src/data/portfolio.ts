@@ -146,7 +146,7 @@ export const portfolio = {
     { label: "X", href: "" },
   ] satisfies SocialLink[],
   contact: {
-    email: "",
+    email: "vinitraj@icloud.com",
     resumeUrl: "",
     heading: "Let’s build something meaningful.",
     description:

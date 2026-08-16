@@ -90,7 +90,7 @@ These values are intentionally non-fabricated and should be replaced only with v
 - Experience, project, technology, and problem-solving metrics
 - The first two journey milestones, their years, and contexts
 - Source links for private projects and any additional project media
-- Email, resume, GitHub, LinkedIn, LeetCode, and X links
+- Resume, GitHub, LinkedIn, LeetCode, and X links
 - Hero portrait treatments, if a newer portrait is preferred
 - Final public site URL
 - Favicon artwork
