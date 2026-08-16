@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Product Engineering",
     "Frontend Systems",
     "Automation",
-    "Technical Experiments",
+    "Infrastructure Automation",
   ],
   icons: {
     icon: "/favicon.svg",

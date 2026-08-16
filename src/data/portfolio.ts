@@ -31,6 +31,7 @@ export interface Project {
   year: string;
   liveUrl: string;
   githubUrl: string;
+  caseStudyUrl: string;
   accent: "ice" | "graphite" | "cobalt" | "silver" | "amber";
 }
 
@@ -50,17 +51,6 @@ export interface JourneyItem {
   link: string;
 }
 
-export interface Experiment {
-  title: string;
-  status: "Concept" | "In development" | "Documenting";
-  description: string;
-  stack: readonly string[];
-  progress: string;
-  githubUrl: string;
-  notes: string;
-  accent: "plotter" | "keyboard" | "dial";
-}
-
 export interface OverviewCard {
   title: string;
   description: string;
@@ -74,14 +64,15 @@ export const portfolio = {
   seo: {
     title: "Vinit Raj — Software Engineer",
     description:
-      "Portfolio of Vinit Raj, a software engineer building thoughtful digital products, systems, and technical experiments.",
+      "Portfolio of Vinit Raj, a software engineer building thoughtful digital products, automation platforms, and production systems.",
   },
   profile: {
     name: "Vinit Raj",
     monogram: "VR",
     role: "Software Engineer",
     currentRole: "Software Engineer",
-    currentLearningFocus: "Product engineering, automation, and interfaces",
+    currentLearningFocus:
+      "Product engineering, infrastructure automation, and interfaces",
     eyebrow: "SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST",
     headline: "Engineering thoughtful digital experiences.",
     description:
@@ -100,7 +91,7 @@ export const portfolio = {
       { id: "impact", label: "Public impact" },
     ],
     about: [
-      "I’m Vinit Raj, a software engineer interested in building technology that is useful, reliable, and carefully considered. I enjoy working across software, interfaces, automation, and hands-on technical experiments.",
+      "I’m Vinit Raj, a software engineer interested in building technology that is useful, reliable, and carefully considered. I enjoy working across software, interfaces, infrastructure automation, and production systems.",
       "Outside engineering, I’m passionate about travelling, bikes, cars, and understanding how ambitious ideas become real systems. My long-term ambition is to serve the nation as an IAS officer, combining technical thinking with public impact.",
     ],
   },
@@ -125,13 +116,13 @@ export const portfolio = {
     },
     {
       title: "Selected Work",
-      description: "Product concepts and technical builds in progress.",
+      description: "Live products and operational systems built for real use.",
       href: "#work",
       icon: "work",
     },
     {
       title: "Engineering",
-      description: "Systems, interfaces, automation, and useful motion.",
+      description: "Systems, interfaces, automation, and production delivery.",
       href: "#engineering",
       icon: "engineering",
     },
@@ -196,89 +187,79 @@ export const portfolio = {
   ],
   projects: [
     {
-      slug: "developer-workflow-console",
-      title: "Developer Workflow Console",
-      purpose: "A focused command centre for repeatable engineering workflows.",
-      category: "Developer platform",
-      status: "Concept",
-      role: "Product and engineering",
-      stack: ["Next.js", "TypeScript", "Node.js"],
+      slug: "huee",
+      title: "Huee",
+      purpose:
+        "A made-to-order product catalogue with customer accounts, persistent carts, order requests, and a secure commerce administration platform.",
+      category: "Commerce platform",
+      status: "In development",
+      role: "Full-stack product engineering",
+      stack: ["React", "Express", "PostgreSQL", "Prisma"],
       challenge:
-        "Bring scattered developer tasks into one clear, dependable interface.",
+        "Unify a polished public storefront, customer commerce flows, and granular staff operations without compromising the security boundary.",
       outcome:
-        "A configurable concept ready to be replaced with a verified case study.",
-      year: "Concept",
-      liveUrl: "",
-      githubUrl: "",
+        "Built a full-stack catalogue with isolated customer and admin authentication, role-based permissions, audit records, and production deployment runbooks.",
+      year: "2026",
+      liveUrl: "https://huee.spaceway.io",
+      githubUrl: "https://github.com/vinitraaaj/Huee",
+      caseStudyUrl: "",
       accent: "ice",
     },
     {
-      slug: "automation-toolkit",
-      title: "Useful Automation Toolkit",
+      slug: "catalog",
+      title: "Catalog",
       purpose:
-        "Small automations that remove repetitive work without adding noise.",
-      category: "Automation tool",
-      status: "Concept",
-      role: "Engineering",
-      stack: ["TypeScript", "APIs", "Task queues"],
+        "A role-based internal system for managing product records, users, audit trails, exports, and operational review workflows.",
+      category: "Internal operations platform",
+      status: "In development",
+      role: "Full-stack engineering",
+      stack: ["React", "Express", "PostgreSQL", "Prisma"],
       challenge:
-        "Design automation that remains understandable, observable, and safe.",
+        "Turn a multi-role product workflow into a dependable workspace with clear permissions, traceable actions, and efficient catalogue operations.",
       outcome:
-        "Placeholder project architecture for a future documented build.",
-      year: "Concept",
-      liveUrl: "",
+        "Delivered product and category management, user administration, audit logs, exports, recycle-bin recovery, and tested operational flows.",
+      year: "2026",
+      liveUrl: "https://testing.niddleman.com",
       githubUrl: "",
+      caseStudyUrl: "",
       accent: "graphite",
     },
     {
-      slug: "pen-plotter-lab",
-      title: "Pen Plotter Lab",
-      purpose: "Turning digital paths into precise physical drawings.",
-      category: "Hardware experiment",
+      slug: "latching",
+      title: "Latching",
+      purpose:
+        "A production platform that automates Flipkart product-latching jobs, tracks progress, and delivers resilient downloadable reports.",
+      category: "Marketplace automation",
       status: "In development",
-      role: "Hardware and software exploration",
-      stack: ["Microcontroller", "Motion control", "Vector paths"],
+      role: "Platform and automation engineering",
+      stack: ["React", "Node.js", "Python", "Selenium"],
       challenge:
-        "Coordinate movement, calibration, and drawing quality across hardware.",
+        "Run browser automation safely and reliably while protecting seller data, preserving partial results, and controlling resource-heavy jobs.",
       outcome:
-        "An active experiment; documentation and results will be added as verified.",
-      year: "In development",
-      liveUrl: "",
+        "Built a secured job platform with isolated browser processes, atomic reports, restart recovery, cancellation safeguards, and production health checks.",
+      year: "2026",
+      liveUrl: "https://latching.spaceway.io",
       githubUrl: "",
+      caseStudyUrl: "",
       accent: "cobalt",
     },
     {
-      slug: "backlit-keyboard-integration",
-      title: "Backlit Keyboard Integration",
+      slug: "ansible-load-balanced-webservers",
+      title: "Automating Web Servers with Ansible",
       purpose:
-        "Exploring a clean bridge between a repurposed keyboard and modern systems.",
-      category: "Hardware experiment",
-      status: "Concept",
-      role: "Systems exploration",
-      stack: ["Embedded input", "USB", "Firmware"],
+        "An automated AWS web-server fleet with round-robin traffic distribution and repeatable horizontal scaling.",
+      category: "Infrastructure automation",
+      status: "Completed",
+      role: "Cloud and automation engineering",
+      stack: ["Ansible", "AWS EC2", "HAProxy", "Apache HTTPD"],
       challenge:
-        "Understand the keyboard matrix, backlight control, and host communication.",
-      outcome: "Concept scope only; no production claim is made.",
-      year: "Concept",
-      liveUrl: "",
-      githubUrl: "",
-      accent: "silver",
-    },
-    {
-      slug: "display-volume-dial",
-      title: "Display Volume Dial",
-      purpose: "A tactile desktop control with useful visual feedback.",
-      category: "Hardware experiment",
-      status: "In development",
-      role: "Interaction and prototyping",
-      stack: ["Rotary encoder", "Display", "Microcontroller"],
-      challenge:
-        "Make physical input feel responsive while keeping the display state accurate.",
+        "Configure a load balancer and multiple backend web servers consistently, then make newly provisioned nodes join the pool with one repeatable workflow.",
       outcome:
-        "Prototype direction in progress; media and source links remain optional.",
-      year: "In development",
+        "Implemented HAProxy round-robin balancing, automated Apache backends through Ansible playbooks, and verified scale-out by adding another server to the fleet.",
+      year: "2023",
       liveUrl: "",
       githubUrl: "",
+      caseStudyUrl: "/documents/server-automation-ansible.pdf",
       accent: "amber",
     },
   ] satisfies Project[],
@@ -319,11 +300,11 @@ export const portfolio = {
       icon: "sparkles",
     },
     {
-      title: "Hardware Experiments",
+      title: "Cloud & Infrastructure",
       description:
-        "Exploring the useful edge where software meets physical controls, sensors, and machines.",
-      technologies: ["Microcontrollers", "Firmware", "Prototyping"],
-      icon: "cpu",
+        "Automating repeatable deployments, traffic routing, service operation, and production safeguards across cloud systems.",
+      technologies: ["AWS", "Ansible", "Nginx"],
+      icon: "server",
     },
   ] satisfies FocusArea[],
   // Replace these visibly marked entries with verified education and work history.
@@ -351,47 +332,11 @@ export const portfolio = {
       title: "Continuous learning",
       context: "Current focus",
       description:
-        "Deepening product engineering, automation, interfaces, and hands-on technical work.",
+        "Deepening product engineering, automation, interfaces, and production infrastructure work.",
       category: "Learning",
       link: "",
     },
   ] satisfies JourneyItem[],
-  experiments: [
-    {
-      title: "Pen plotter",
-      status: "In development",
-      description:
-        "A compact motion system that translates vector paths into physical line work.",
-      stack: ["Motion control", "Microcontroller", "Vector tooling"],
-      progress: "Mechanics and control path exploration",
-      githubUrl: "",
-      notes: "Add verified build notes, imagery, and calibration results here.",
-      accent: "plotter",
-    },
-    {
-      title: "Backlit keyboard integration",
-      status: "Concept",
-      description:
-        "An investigation into repurposing a backlit keyboard through a custom hardware interface.",
-      stack: ["Keyboard matrix", "USB", "Firmware"],
-      progress: "Architecture research",
-      githubUrl: "",
-      notes: "Document electrical findings and compatibility once tested.",
-      accent: "keyboard",
-    },
-    {
-      title: "Volume-control dial",
-      status: "In development",
-      description:
-        "A tactile volume controller pairing a rotary input with an information display.",
-      stack: ["Rotary encoder", "Display", "Host controls"],
-      progress: "Interaction prototype",
-      githubUrl: "",
-      notes:
-        "Add enclosure, display, and integration details as the prototype matures.",
-      accent: "dial",
-    },
-  ] satisfies Experiment[],
   principles: [
     "Clarity over complexity",
     "Reliability before scale",

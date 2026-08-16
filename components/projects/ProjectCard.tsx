@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight, Code2, FileText } from "lucide-react";
 import type { Project } from "@/src/data/portfolio";
 import { GlassCard } from "@/components/glass/GlassCard";
 
@@ -16,7 +16,9 @@ export function ProjectCard({
 
   return (
     <motion.div
-      className="project-card-wrap"
+      className={
+        "project-card-wrap" + (project.caseStudyUrl ? " has-document" : "")
+      }
       initial={reducedMotion ? false : { opacity: 0, y: 34 }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-8%" }}
@@ -64,6 +66,12 @@ export function ProjectCard({
               ))}
             </div>
             <div className="project-links">
+              {project.caseStudyUrl ? (
+                <a href={project.caseStudyUrl} target="_blank" rel="noreferrer">
+                  <FileText size={16} aria-hidden="true" />
+                  View case study
+                </a>
+              ) : null}
               {project.githubUrl ? (
                 <a href={project.githubUrl} target="_blank" rel="noreferrer">
                   <Code2 size={16} aria-hidden="true" />
@@ -75,12 +83,12 @@ export function ProjectCard({
                   View project
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
-              ) : (
+              ) : !project.caseStudyUrl ? (
                 <span className="case-study-placeholder">
                   Case study coming later
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </span>
-              )}
+              ) : null}
             </div>
           </div>
         </div>

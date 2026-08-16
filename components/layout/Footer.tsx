@@ -11,7 +11,7 @@ export function Footer() {
           <span>{portfolio.profile.role}</span>
         </div>
       </div>
-      <p>Designed to evolve with verified work, milestones, and experiments.</p>
+      <p>Designed to evolve with verified products, systems, and milestones.</p>
       <a href="#overview">
         Back to top <ArrowUp size={15} aria-hidden="true" />
       </a>

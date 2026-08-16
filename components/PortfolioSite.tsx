@@ -1,7 +1,6 @@
 import { About } from "@/components/about/About";
 import { Contact } from "@/components/contact/Contact";
 import { EngineeringFocus } from "@/components/engineering/EngineeringFocus";
-import { Experiments } from "@/components/experiments/Experiments";
 import { AtGlance } from "@/components/hero/AtGlance";
 import { Hero } from "@/components/hero/Hero";
 import { OverviewRail } from "@/components/hero/OverviewRail";
@@ -37,7 +36,6 @@ export function PortfolioSite() {
           <SelectedWork />
           <EngineeringFocus />
           <Journey />
-          <Experiments />
           <About />
           <Contact />
         </main>

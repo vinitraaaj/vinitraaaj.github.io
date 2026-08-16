@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -27,6 +27,12 @@ async function render() {
 }
 
 test("server-renders Vinit Raj portfolio metadata and content", async () => {
+  await access(
+    new URL(
+      "../public/documents/server-automation-ansible.pdf",
+      import.meta.url,
+    ),
+  );
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -35,7 +41,7 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, /<title>Vinit Raj — Software Engineer<\/title>/i);
   assert.match(
     html,
-    /Portfolio of Vinit Raj, a software engineer building thoughtful digital products/,
+    /Portfolio of Vinit Raj, a software engineer building thoughtful digital products, automation platforms/,
   );
   assert.match(html, /Engineering thoughtful digital experiences\./);
   assert.match(html, /Open to meaningful opportunities/);
@@ -45,10 +51,19 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, /id="journey"/);
   assert.match(html, /id="about"/);
   assert.match(html, /id="contact"/);
+  assert.match(html, />Huee</);
+  assert.match(html, />Catalog</);
+  assert.match(html, />Latching</);
+  assert.match(html, /Automating Web Servers with Ansible/);
+  assert.match(html, /href="\/documents\/server-automation-ansible\.pdf"/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /"@type":"Person"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
   assert.doesNotMatch(html, /Tim Cook|Apple Inc|Rockstar Games/i);
+  assert.doesNotMatch(
+    html,
+    /Pen Plotter|Backlit Keyboard Integration|Display Volume Dial/i,
+  );
 });
 
 test("ships theme, reduced-motion, and overflow safeguards", async () => {

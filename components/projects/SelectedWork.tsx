@@ -10,9 +10,9 @@ export function SelectedWork() {
       aria-labelledby="work-title"
     >
       <SectionHeading
-        eyebrow="SELECTED WORK · CONFIGURABLE CASE STUDIES"
-        title="Built like products, not thumbnails."
-        description="A launch-style project system ready for verified work. Current entries are clearly labelled concepts or work in development."
+        eyebrow="SELECTED WORK · PRODUCTS & SYSTEMS"
+        title="Built for real operations."
+        description="Full-stack products, internal platforms, marketplace automation, and infrastructure work shaped around real users and dependable delivery."
       />
       <h2 id="work-title" className="sr-only">
         Selected work

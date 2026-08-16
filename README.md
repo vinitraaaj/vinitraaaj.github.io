@@ -26,7 +26,7 @@ All personal content is stored in:
 
     src/data/portfolio.ts
 
-This file contains the profile, navigation, metrics, projects, skills, engineering focus areas, journey, experiments, principles, contact details, and social links. Components should not be edited for routine content changes.
+This file contains the profile, navigation, metrics, projects, skills, engineering focus areas, journey, principles, contact details, and social links. Components should not be edited for routine content changes.
 
 Empty optional links are hidden automatically.
 
@@ -40,8 +40,10 @@ Each project supports:
 - Concept, In development, or Completed status
 - Technology stack
 - Challenge and verified outcome
-- Live and source links
+- Live, source, and PDF case-study links
 - Case-study slug and visual accent
+
+Project documents belong in `public/documents`. The Ansible load-balancing case study is available at `public/documents/server-automation-ansible.pdf`.
 
 Do not mark a project Completed or describe production outcomes until those facts are verified.
 
@@ -87,8 +89,7 @@ These values are intentionally non-fabricated and should be replaced only with v
 
 - Experience, project, technology, and problem-solving metrics
 - The first two journey milestones, their years, and contexts
-- All project live links, source links, and media
-- Experiment source links, imagery, and detailed build notes
+- Source links for private projects and any additional project media
 - Email, resume, GitHub, LinkedIn, LeetCode, and X links
 - Hero portrait treatments, if a newer portrait is preferred
 - Final public site URL
@@ -99,8 +100,9 @@ The concept and in-development labels are intentional. They prevent unfinished i
 ## Architecture
 
 - app — App Router page, metadata, sitemap, robots, and global design system
-- components — reusable navigation, theme, motion, glass, hero, project, timeline, experiment, about, contact, and layout components
+- components — reusable navigation, theme, motion, glass, hero, project, timeline, about, contact, and layout components
 - src/data/portfolio.ts — the single personal content source
+- public/documents/server-automation-ansible.pdf — the attached infrastructure automation case study
 - public/og-v2.png — generated social preview artwork matching the redesigned portrait direction
 
 The implementation uses strict TypeScript, Tailwind CSS, Framer Motion, Lucide icons, Next Image, Next Font, semantic HTML, keyboard focus states, reduced-motion support, and responsive layouts without duplicated theme markup.
