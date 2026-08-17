@@ -41,9 +41,9 @@ Each project supports:
 - Technology stack
 - Challenge and verified outcome
 - Live, source, and PDF case-study links
-- Case-study slug and visual accent
+- Project image, descriptive alt text, case-study slug, and visual accent
 
-Project documents belong in `public/documents`. The Ansible load-balancing case study is available at `public/documents/server-automation-ansible.pdf`.
+Project artwork belongs in `public/images/projects`, with its path and alt text defined on the project record. Project documents belong in `public/documents`. The Ansible load-balancing case study is available at `public/documents/server-automation-ansible.pdf`.
 
 Do not mark a project Completed or describe production outcomes until those facts are verified.
 
@@ -102,6 +102,7 @@ The concept and in-development labels are intentional. They prevent unfinished i
 - app — App Router page, metadata, sitemap, robots, and global design system
 - components — reusable navigation, theme, motion, glass, hero, project, timeline, about, contact, and layout components
 - src/data/portfolio.ts — the single personal content source
+- public/images/projects — generated, project-specific portfolio artwork
 - public/documents/server-automation-ansible.pdf — the attached infrastructure automation case study
 - public/og-v2.png — generated social preview artwork matching the redesigned portrait direction
 

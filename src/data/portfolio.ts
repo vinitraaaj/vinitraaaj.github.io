@@ -21,6 +21,8 @@ export interface Metric {
 export interface Project {
   slug: string;
   title: string;
+  image: string;
+  imageAlt: string;
   purpose: string;
   category: string;
   status: "Concept" | "In development" | "Completed";
@@ -189,6 +191,9 @@ export const portfolio = {
     {
       slug: "huee",
       title: "Huee",
+      image: "/images/projects/huee-commerce-platform.webp",
+      imageAlt:
+        "Cinematic visualization of Huee's storefront, shopping cart, and secure administration platform",
       purpose:
         "A made-to-order product catalogue with customer accounts, persistent carts, order requests, and a secure commerce administration platform.",
       category: "Commerce platform",
@@ -208,6 +213,9 @@ export const portfolio = {
     {
       slug: "catalog",
       title: "Catalog",
+      image: "/images/projects/catalog-operations-platform.webp",
+      imageAlt:
+        "Cinematic visualization of Catalog's product workflow, taxonomy, review, and export system",
       purpose:
         "A role-based internal system for managing product records, users, audit trails, exports, and operational review workflows.",
       category: "Internal operations platform",
@@ -227,6 +235,9 @@ export const portfolio = {
     {
       slug: "latching",
       title: "Latching",
+      image: "/images/projects/latching-automation-platform.webp",
+      imageAlt:
+        "Cinematic visualization of Latching's secure browser-automation pipeline and report output",
       purpose:
         "A production platform that automates Flipkart product-latching jobs, tracks progress, and delivers resilient downloadable reports.",
       category: "Marketplace automation",
@@ -246,6 +257,9 @@ export const portfolio = {
     {
       slug: "ansible-load-balanced-webservers",
       title: "Automating Web Servers with Ansible",
+      image: "/images/projects/ansible-load-balancing.webp",
+      imageAlt:
+        "Cinematic infrastructure visualization of an Ansible controller, load balancer, backend web servers, and scale-out node",
       purpose:
         "An automated AWS web-server fleet with round-robin traffic distribution and repeatable horizontal scaling.",
       category: "Infrastructure automation",

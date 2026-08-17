@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Code2, FileText } from "lucide-react";
 import type { Project } from "@/src/data/portfolio";
@@ -29,17 +30,20 @@ export function ProjectCard({
       }}
     >
       <GlassCard as="article" className="project-card">
-        <div
-          className={"project-visual accent-" + project.accent}
-          aria-hidden="true"
-        >
-          <div className="project-visual-grid" />
-          <div className="project-surface">
+        <div className={"project-visual accent-" + project.accent}>
+          <Image
+            src={project.image}
+            alt={project.imageAlt}
+            fill
+            sizes="(max-width: 900px) 100vw, 58vw"
+            className="project-image"
+            unoptimized
+          />
+          <div className="project-image-shade" aria-hidden="true" />
+          <div className="project-visual-meta">
             <span>{String(index + 1).padStart(2, "0")}</span>
             <strong>{project.category}</strong>
           </div>
-          <div className="project-orb" />
-          <div className="project-path" />
         </div>
 
         <div className="project-content">

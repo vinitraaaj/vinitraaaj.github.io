@@ -27,12 +27,38 @@ async function render() {
 }
 
 test("server-renders Vinit Raj portfolio metadata and content", async () => {
-  await access(
-    new URL(
-      "../public/documents/server-automation-ansible.pdf",
-      import.meta.url,
+  await Promise.all([
+    access(
+      new URL(
+        "../public/documents/server-automation-ansible.pdf",
+        import.meta.url,
+      ),
     ),
-  );
+    access(
+      new URL(
+        "../public/images/projects/huee-commerce-platform.webp",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/images/projects/catalog-operations-platform.webp",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/images/projects/latching-automation-platform.webp",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/images/projects/ansible-load-balancing.webp",
+        import.meta.url,
+      ),
+    ),
+  ]);
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -57,6 +83,10 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, />Latching</);
   assert.match(html, /Automating Web Servers with Ansible/);
   assert.match(html, /href="\/documents\/server-automation-ansible\.pdf"/);
+  assert.match(html, /\/images\/projects\/huee-commerce-platform\.webp/);
+  assert.match(html, /\/images\/projects\/catalog-operations-platform\.webp/);
+  assert.match(html, /\/images\/projects\/latching-automation-platform\.webp/);
+  assert.match(html, /\/images\/projects\/ansible-load-balancing\.webp/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /"@type":"Person"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
