@@ -19,6 +19,7 @@ export function Hero() {
           quality={92}
           sizes="100vw"
           className="hero-scene"
+          unoptimized
         />
       </div>
       <div className="hero-tone" aria-hidden="true" />
