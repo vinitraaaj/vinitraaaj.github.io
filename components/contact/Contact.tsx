@@ -31,7 +31,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="section-eyebrow">CONTACT · OPEN CHANNEL</p>
+          <p className="section-eyebrow">GET IN TOUCH</p>
           <h2 id="contact-title">{portfolio.contact.heading}</h2>
           <p>{portfolio.contact.description}</p>
         </motion.div>

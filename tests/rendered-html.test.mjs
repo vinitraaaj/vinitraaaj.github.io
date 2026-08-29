@@ -74,7 +74,6 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, /id="overview"/);
   assert.match(html, /id="work"/);
   assert.match(html, /id="engineering"/);
-  assert.match(html, /id="journey"/);
   assert.match(html, /id="about"/);
   assert.match(html, /id="contact"/);
   assert.match(html, /href="mailto:vinitraj@icloud\.com"/);
@@ -95,6 +94,8 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
     html,
     /Pen Plotter|Backlit Keyboard Integration|Display Volume Dial/i,
   );
+  assert.doesNotMatch(html, /Add your first milestone|Add your next chapter/i);
+  assert.doesNotMatch(html, /cinematic-intro|glance-panel|overview-rail/i);
 });
 
 test("ships theme, reduced-motion, and overflow safeguards", async () => {

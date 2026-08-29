@@ -98,14 +98,12 @@ export const portfolio = {
     ],
   },
   navigation: [
-    { label: "Overview", href: "#overview", sectionId: "overview" },
     { label: "Work", href: "#work", sectionId: "work" },
     {
       label: "Engineering",
       href: "#engineering",
       sectionId: "engineering",
     },
-    { label: "Journey", href: "#journey", sectionId: "journey" },
     { label: "About", href: "#about", sectionId: "about" },
     { label: "Contact", href: "#contact", sectionId: "contact" },
   ] satisfies NavigationItem[],

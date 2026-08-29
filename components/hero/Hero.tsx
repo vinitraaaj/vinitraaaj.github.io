@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDownRight, ArrowRight, MapPin } from "lucide-react";
+import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
 import { portfolio } from "@/src/data/portfolio";
 
 export function Hero() {
@@ -22,12 +22,6 @@ export function Hero() {
         />
       </div>
       <div className="hero-tone" aria-hidden="true" />
-      <div className="hero-signal" aria-hidden="true">
-        <span>VR / 01</span>
-        <i />
-        <span>PORTFOLIO</span>
-      </div>
-
       <motion.div className="hero-copy">
         <motion.p
           className="hero-eyebrow"
@@ -35,7 +29,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.42, delay: 0.12 }}
         >
-          {portfolio.profile.eyebrow}
+          {portfolio.profile.name} · {portfolio.profile.role}
         </motion.p>
         <div className="hero-title-mask">
           <motion.h1
@@ -48,16 +42,9 @@ export function Hero() {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            {portfolio.profile.name}
+            {portfolio.profile.headline}
           </motion.h1>
         </div>
-        <motion.h2
-          initial={reducedMotion ? false : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.58, delay: 0.22 }}
-        >
-          {portfolio.profile.headline}
-        </motion.h2>
         <motion.p
           className="hero-description"
           initial={reducedMotion ? false : { opacity: 0, y: 14 }}
@@ -74,7 +61,7 @@ export function Hero() {
           transition={{ duration: 0.52, delay: 0.38 }}
         >
           <a className="button button-primary" href="#work">
-            Explore my work <ArrowDownRight size={17} aria-hidden="true" />
+            View selected work <ArrowDown size={17} aria-hidden="true" />
           </a>
           <a className="button button-secondary" href="#contact">
             Contact me <ArrowRight size={17} aria-hidden="true" />
@@ -97,10 +84,6 @@ export function Hero() {
           </span>
         </motion.div>
       </motion.div>
-      <a className="scroll-cue" href="#glance">
-        <span aria-hidden="true" />
-        Scroll to explore
-      </a>
     </section>
   );
 }

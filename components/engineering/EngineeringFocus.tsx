@@ -30,8 +30,8 @@ export function EngineeringFocus() {
     >
       <SectionHeading
         eyebrow="ENGINEERING FOCUS"
-        title="Systems with a point of view."
-        description="Areas actively being built across—presented as focus and practice, without overstating expertise."
+        title="Craft across the stack."
+        description="How I connect product thinking, interfaces, services, automation, and infrastructure into coherent systems."
       />
       <h2 id="engineering-title" className="sr-only">
         Engineering focus
