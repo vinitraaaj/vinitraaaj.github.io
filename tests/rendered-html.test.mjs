@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set(
     "test",
@@ -11,7 +11,7 @@ async function render() {
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -58,6 +58,12 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
         import.meta.url,
       ),
     ),
+    access(
+      new URL(
+        "../public/images/vinit-authentic-portrait.webp",
+        import.meta.url,
+      ),
+    ),
   ]);
   const response = await render();
   assert.equal(response.status, 200);
@@ -81,7 +87,8 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   assert.match(html, />Catalog</);
   assert.match(html, />Latching</);
   assert.match(html, /Automating Web Servers with Ansible/);
-  assert.match(html, /href="\/documents\/server-automation-ansible\.pdf"/);
+  assert.match(html, /href="\/work\/huee\/"/);
+  assert.match(html, /href="\/work\/ansible-load-balanced-webservers\/"/);
   assert.match(html, /\/images\/projects\/huee-commerce-platform\.webp/);
   assert.match(html, /\/images\/projects\/catalog-operations-platform\.webp/);
   assert.match(html, /\/images\/projects\/latching-automation-platform\.webp/);
@@ -96,6 +103,34 @@ test("server-renders Vinit Raj portfolio metadata and content", async () => {
   );
   assert.doesNotMatch(html, /Add your first milestone|Add your next chapter/i);
   assert.doesNotMatch(html, /cinematic-intro|glance-panel|overview-rail/i);
+});
+
+test("renders project-specific case studies and metadata", async () => {
+  const cases = [
+    {
+      path: "/work/huee",
+      title: "Huee Case Study — Vinit Raj",
+      heading: "Separate the trust boundaries",
+      image: "/images/projects/huee-commerce-platform.webp",
+    },
+    {
+      path: "/work/ansible-load-balanced-webservers",
+      title: "Automating Web Servers with Ansible Case Study — Vinit Raj",
+      heading: "Make configuration repeatable",
+      image: "/images/projects/ansible-load-balancing.webp",
+    },
+  ];
+
+  for (const caseStudy of cases) {
+    const response = await render(caseStudy.path);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, new RegExp(`<title>${caseStudy.title}</title>`, "i"));
+    assert.match(html, new RegExp(caseStudy.heading));
+    assert.match(html, new RegExp(caseStudy.image.replaceAll("/", "\\/")));
+    assert.match(html, /System architecture/);
+    assert.match(html, /Engineering decisions/);
+  }
 });
 
 test("ships theme, reduced-motion, and overflow safeguards", async () => {
@@ -114,7 +149,10 @@ test("ships theme, reduced-motion, and overflow safeguards", async () => {
   assert.match(css, /@media \(max-width:\s*680px\)/);
   assert.match(layout, /vinit-portfolio-theme/);
   assert.match(layout, /prefers-color-scheme:\s*dark/);
-  assert.match(data, /portraitImage:\s*"\/images\/vinit-hero-shared-v4\.webp"/);
+  assert.match(
+    data,
+    /portraitImage:\s*"\/images\/vinit-authentic-portrait\.webp"/,
+  );
   assert.match(data, /email:\s*"vinitraj@icloud\.com"/);
   assert.match(data, /githubUrl:\s*""/);
   assert.match(packageJson, /"framer-motion"/);

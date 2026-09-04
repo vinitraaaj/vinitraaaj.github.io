@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { portfolio } from "@/src/data/portfolio";
 
 export const dynamic = "force-static";
 
@@ -12,5 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...portfolio.projects.map((project) => ({
+      url: `${baseUrl}/work/${project.slug}/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }

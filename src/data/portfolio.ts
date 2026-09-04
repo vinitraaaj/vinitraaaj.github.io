@@ -35,6 +35,17 @@ export interface Project {
   githubUrl: string;
   caseStudyUrl: string;
   accent: "ice" | "graphite" | "cobalt" | "silver" | "amber";
+  caseStudy: {
+    highlights: readonly string[];
+    architecture: readonly {
+      title: string;
+      description: string;
+    }[];
+    decisions: readonly {
+      title: string;
+      description: string;
+    }[];
+  };
 }
 
 export interface FocusArea {
@@ -81,8 +92,8 @@ export const portfolio = {
       "I build reliable, intuitive, and carefully crafted software at the intersection of engineering, product thinking, and design.",
     availability: "Open to meaningful opportunities",
     location: "Based in India · Building for the world",
-    portraitImage: "/images/vinit-hero-shared-v4.webp",
-    portraitAlt: "Portrait of Vinit Raj",
+    portraitImage: "/images/vinit-authentic-portrait.webp",
+    portraitAlt: "Vinit Raj smiling at the camera",
     principle: "Good engineering should feel clear, reliable, and intentional.",
     longView:
       "The long view: combine technical thinking with meaningful public impact.",
@@ -207,6 +218,53 @@ export const portfolio = {
       githubUrl: "https://github.com/vinitraaaj/Huee",
       caseStudyUrl: "",
       accent: "ice",
+      caseStudy: {
+        highlights: [
+          "Customer accounts and persistent carts",
+          "Made-to-order product and order-request flows",
+          "Separate customer and staff authentication",
+          "Role-based permissions and audit records",
+        ],
+        architecture: [
+          {
+            title: "Customer experience",
+            description:
+              "A React storefront presents the catalogue and coordinates account, cart, and order-request states.",
+          },
+          {
+            title: "Application service",
+            description:
+              "Express APIs connect product discovery, customer workflows, orders, and staff operations.",
+          },
+          {
+            title: "Data foundation",
+            description:
+              "Prisma provides typed access to PostgreSQL for catalogue, identity, permissions, and order data.",
+          },
+          {
+            title: "Operational control",
+            description:
+              "A separated administration surface applies staff roles and records sensitive actions for review.",
+          },
+        ],
+        decisions: [
+          {
+            title: "Separate the trust boundaries",
+            description:
+              "Customer and administrative authentication are isolated so public commerce flows do not share the staff security boundary.",
+          },
+          {
+            title: "Model intent before fulfilment",
+            description:
+              "Made-to-order purchases become explicit order requests, preserving the operational step between selection and fulfilment.",
+          },
+          {
+            title: "Make operations traceable",
+            description:
+              "Role checks and audit records keep staff actions understandable as the operational surface expands.",
+          },
+        ],
+      },
     },
     {
       slug: "catalog",
@@ -229,6 +287,53 @@ export const portfolio = {
       githubUrl: "",
       caseStudyUrl: "",
       accent: "graphite",
+      caseStudy: {
+        highlights: [
+          "Role-aware product and category management",
+          "User administration and permission boundaries",
+          "Audit history and operational review",
+          "Exports and recycle-bin recovery",
+        ],
+        architecture: [
+          {
+            title: "Role-aware workspace",
+            description:
+              "The React interface presents only the catalogue operations available to the signed-in user.",
+          },
+          {
+            title: "Operational API",
+            description:
+              "Express services coordinate products, categories, users, audit activity, exports, and recovery flows.",
+          },
+          {
+            title: "Consistent data access",
+            description:
+              "Prisma and PostgreSQL provide a structured foundation for connected records and recoverable state changes.",
+          },
+          {
+            title: "Review and output",
+            description:
+              "Audit trails and exports turn catalogue activity into information that operators can inspect and use.",
+          },
+        ],
+        decisions: [
+          {
+            title: "Design permissions into the workflow",
+            description:
+              "Roles shape available actions at the interface and service layers instead of being added as a superficial gate.",
+          },
+          {
+            title: "Prefer recovery over silent deletion",
+            description:
+              "Recycle-bin behaviour protects operators from accidental loss while keeping catalogue maintenance efficient.",
+          },
+          {
+            title: "Treat auditability as a feature",
+            description:
+              "Operational changes remain reviewable, improving accountability and making support work easier to reason about.",
+          },
+        ],
+      },
     },
     {
       slug: "latching",
@@ -251,6 +356,53 @@ export const portfolio = {
       githubUrl: "",
       caseStudyUrl: "",
       accent: "cobalt",
+      caseStudy: {
+        highlights: [
+          "Secured job intake and progress tracking",
+          "Isolated Selenium browser processes",
+          "Atomic downloadable report generation",
+          "Restart recovery and cancellation safeguards",
+        ],
+        architecture: [
+          {
+            title: "Job intake",
+            description:
+              "The React interface submits product-latching work and exposes clear progress and completion states.",
+          },
+          {
+            title: "Controlled orchestration",
+            description:
+              "Node.js services validate work, coordinate execution, and protect the boundaries around seller data.",
+          },
+          {
+            title: "Isolated automation",
+            description:
+              "Python and Selenium workers run browser-heavy tasks in separate processes so one job cannot destabilise the rest.",
+          },
+          {
+            title: "Durable output",
+            description:
+              "Results are written atomically and preserved through interruption, cancellation, or application restart.",
+          },
+        ],
+        decisions: [
+          {
+            title: "Isolate expensive work",
+            description:
+              "Browser processes are separated from the application service to contain memory pressure and automation failures.",
+          },
+          {
+            title: "Preserve useful partial progress",
+            description:
+              "The reporting flow protects completed work instead of discarding an entire run when a later item fails.",
+          },
+          {
+            title: "Design cancellation as a state transition",
+            description:
+              "Cancellation safeguards coordinate process shutdown and reporting rather than abruptly terminating the job.",
+          },
+        ],
+      },
     },
     {
       slug: "ansible-load-balanced-webservers",
@@ -273,6 +425,53 @@ export const portfolio = {
       githubUrl: "",
       caseStudyUrl: "/documents/server-automation-ansible.pdf",
       accent: "amber",
+      caseStudy: {
+        highlights: [
+          "Repeatable EC2 web-server configuration",
+          "HAProxy round-robin traffic distribution",
+          "Automated Apache HTTPD backends",
+          "Verified horizontal scale-out workflow",
+        ],
+        architecture: [
+          {
+            title: "Automation control",
+            description:
+              "An Ansible controller applies repeatable configuration from inventory and playbooks to the target fleet.",
+          },
+          {
+            title: "Traffic entry point",
+            description:
+              "HAProxy accepts incoming requests and distributes them across the available backend servers.",
+          },
+          {
+            title: "Web-server fleet",
+            description:
+              "Apache HTTPD runs on multiple AWS EC2 instances configured through the same automation workflow.",
+          },
+          {
+            title: "Scale-out path",
+            description:
+              "A newly provisioned node is configured consistently and added to the load-balancing pool for verification.",
+          },
+        ],
+        decisions: [
+          {
+            title: "Make configuration repeatable",
+            description:
+              "Playbooks replace manual server setup, reducing drift between the load balancer and backend instances.",
+          },
+          {
+            title: "Separate traffic from serving",
+            description:
+              "HAProxy owns distribution while Apache nodes focus on serving responses, creating a clear scaling boundary.",
+          },
+          {
+            title: "Verify scale through behaviour",
+            description:
+              "The project confirms round-robin distribution before and after adding another backend to the fleet.",
+          },
+        ],
+      },
     },
   ] satisfies Project[],
   focusAreas: [

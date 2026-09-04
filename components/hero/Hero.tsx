@@ -16,7 +16,6 @@ export function Hero() {
           alt={portfolio.profile.portraitAlt}
           fill
           priority
-          quality={92}
           sizes="100vw"
           className="hero-scene"
           unoptimized

@@ -42,14 +42,17 @@ Each project supports:
 - Challenge and verified outcome
 - Live, source, and PDF case-study links
 - Project image, descriptive alt text, case-study slug, and visual accent
+- Case-study highlights, architecture steps, and engineering decisions
 
 Project artwork belongs in `public/images/projects`, with its path and alt text defined on the project record. Project documents belong in `public/documents`. The Ansible load-balancing case study is available at `public/documents/server-automation-ansible.pdf`.
+
+Each project automatically receives a static page at `/work/[slug]/`. These pages use the project image for their Open Graph and X preview metadata.
 
 Do not mark a project Completed or describe production outcomes until those facts are verified.
 
 ## Replace the hero portrait
 
-The hero uses one identity-preserving graphite editorial portrait across both themes: `public/images/vinit-hero-shared-v4.webp`.
+The hero uses Vinit's authentic portrait across both themes: `public/images/vinit-authentic-portrait.webp`.
 
 To replace it, add an optimised wide image to `public/images`, then update `portraitImage` in `src/data/portfolio.ts`. Keep the subject on the right and preserve roughly 44% negative space on the left so the headline remains readable.
 
@@ -101,6 +104,7 @@ The concept and in-development labels are intentional. They prevent unfinished i
 
 - app — App Router page, metadata, sitemap, robots, and global design system
 - components — reusable navigation, theme, motion, glass, hero, project, timeline, about, contact, and layout components
+- app/work/[slug] — statically generated project case-study pages
 - src/data/portfolio.ts — the single personal content source
 - public/images/projects — generated, project-specific portfolio artwork
 - public/documents/server-automation-ansible.pdf — the attached infrastructure automation case study
