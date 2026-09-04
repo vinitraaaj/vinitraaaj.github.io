@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Code2, FileText } from "lucide-react";
 import type { Project } from "@/src/data/portfolio";
@@ -69,10 +68,10 @@ export function ProjectCard({
               ))}
             </div>
             <div className="project-links">
-              <Link href={`/work/${project.slug}/`}>
+              <a href={`/work/${project.slug}/`}>
                 <FileText size={16} aria-hidden="true" />
                 Read case study
-              </Link>
+              </a>
               {project.githubUrl ? (
                 <a href={project.githubUrl} target="_blank" rel="noreferrer">
                   <Code2 size={16} aria-hidden="true" />
